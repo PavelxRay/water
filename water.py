@@ -5,39 +5,6 @@ from PyQt5.QtGui import QPalette, QImage, QBrush
 from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QLineEdit, QPushButton
 
 
-class WorkWindow(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.initUI()
-
-    def initUI(self):
-        WID, HEI = 800, 600
-        self.setGeometry(300, 300, WID, HEI)
-        self.setWindowTitle("Water counter")
-
-        oImage = QImage("fon1.jpg")
-        sImage = oImage.scaled(QSize(800, 600))
-        palette = QPalette()
-        palette.setBrush(QPalette.Window, QBrush(sImage))
-        self.setPalette(palette)  # фон
-
-        self.btn1 = QPushButton('+ 100 мл.', self)
-        self.btn1.resize(150, 50)
-        self.btn1.move(500, 90)  # + 0.1л.
-
-        self.btn1 = QPushButton('+ 250 мл.', self)
-        self.btn1.resize(150, 50)
-        self.btn1.move(500, 150)  # + 0,25л.
-
-        self.btn2 = QPushButton('+ 500 мл.', self)
-        self.btn2.resize(150, 50)
-        self.btn2.move(500, 210)  # + 0,5л.
-
-        self.btn3 = QPushButton('+ 1 л.', self)
-        self.btn3.resize(150, 50)
-        self.btn3.move(500, 270)  # + 1л.
-
-
 class Example(QWidget):
     def __init__(self):
         super().__init__()
@@ -95,6 +62,39 @@ class Example(QWidget):
         self.w2 = WorkWindow()
         self.w2.show()
         self.hide()
+
+
+class WorkWindow(Example):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        WID, HEI = 800, 600
+        self.setGeometry(300, 300, WID, HEI)
+        self.setWindowTitle("Water counter")
+
+        oImage = QImage("fon1.jpg")
+        sImage = oImage.scaled(QSize(800, 600))
+        palette = QPalette()
+        palette.setBrush(QPalette.Window, QBrush(sImage))
+        self.setPalette(palette)  # фон
+
+        self.btn1 = QPushButton('+ 100 мл.', self)
+        self.btn1.resize(150, 50)
+        self.btn1.move(500, 90)  # + 0.1л.
+
+        self.btn1 = QPushButton('+ 250 мл.', self)
+        self.btn1.resize(150, 50)
+        self.btn1.move(500, 150)  # + 0,25л.
+
+        self.btn2 = QPushButton('+ 500 мл.', self)
+        self.btn2.resize(150, 50)
+        self.btn2.move(500, 210)  # + 0,5л.
+
+        self.btn3 = QPushButton('+ 1 л.', self)
+        self.btn3.resize(150, 50)
+        self.btn3.move(500, 270)  # + 1л.
 
 
 if __name__ == '__main__':
